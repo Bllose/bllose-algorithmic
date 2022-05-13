@@ -1,7 +1,5 @@
 package bllose.sortrelated;
 
-import java.util.List;
-
 public class MergeLists {
 
     static class ListNode{
