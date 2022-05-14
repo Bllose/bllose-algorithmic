@@ -12,6 +12,8 @@
 
 
 ## 搜索算法
-
+- Leetcode 98 验证二叉搜索树
+- - java/bllose/binaryTree/BinaryTrees.java
+- ![binaryTree](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/binaryTree/resourses/validBTS.png)
 
 ## 回溯
