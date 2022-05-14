@@ -14,8 +14,8 @@ public class MergeLists {
             return null;
         }
 
-        for(int i = 1 ; i < lists.length; i *= 2){
-            for(int j = 0; j < (lists.length - 1); j += i*2){
+        for(int i = 1 ; i < lists.length; i *= 2){            // 两待合并队列相隔距离
+            for(int j = 0; j < (lists.length - 1); j += i*2){ // 循环处理当前合并的俩队列
                 lists[j] = mergeList(lists[j], lists[i+j]);
             }
         }
