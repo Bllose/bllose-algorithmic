@@ -13,10 +13,10 @@
 
 ## 搜索算法
 - **深度优先** 
-- - Leetcode 98 验证二叉搜索树
+- - Leetcode 98 验证二叉搜索树 Validate Binary Search Tree
 - - - java/bllose/binaryTree/BinaryTrees.java
 ![binaryTree](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/binaryTree/resourses/validBTS.png)  
 
-- **广度优先**
+- **广度优先** Level Order
 
 ## 回溯
