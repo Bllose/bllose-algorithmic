@@ -28,8 +28,6 @@ public class BinaryTrees{
     }
 
     private boolean valid(TreeNode root, Integer min, Integer max){
-        if(null == root) return true;
-
         if(max != null && root.val >= max) return false;
         if(min != null && root.val <= min) return false;
 
