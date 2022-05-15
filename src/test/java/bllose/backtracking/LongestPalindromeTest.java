@@ -50,4 +50,34 @@ public class LongestPalindromeTest{
     public void dynamicProgramming6(){
         Assert.assertEquals("aaaa", lp.dynamicProgramming("aaaa"));    
     }
+
+    @Test
+    public void centralExtension1(){
+        Assert.assertEquals("bab", lp.centralExtension("babad"));    
+    }
+
+    @Test
+    public void centralExtension2(){
+        Assert.assertEquals("a", lp.centralExtension("a"));    
+    }
+
+    @Test
+    public void centralExtension3(){
+        Assert.assertEquals("bb", lp.centralExtension("cbbd"));    
+    }
+
+    @Test
+    public void centralExtension4(){
+        Assert.assertEquals("a", lp.centralExtension("ac"));    
+    }
+
+    @Test
+    public void centralExtension5(){
+        Assert.assertEquals("aca", lp.centralExtension("aacabdkacaa"));    
+    }
+
+    @Test
+    public void centralExtension6(){
+        Assert.assertEquals("aaaa", lp.centralExtension("aaaa"));    
+    }
 }

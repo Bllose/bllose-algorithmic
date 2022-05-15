@@ -69,6 +69,42 @@ public class LongestPalindrome {
         return s.substring(begin, begin + length);
     }
 
+    public String centralExtension(String s){
+        if(s==null || s.length() == 0) return "";
+        if(s.length()==1) return s;
+
+        char[] sChar = s.toCharArray();
+        int begin = -1;
+        int end = -1;
+        for(int center = 1; center < sChar.length; center ++){
+            if(sChar[center - 1] == sChar[center]){
+                int left = center - 1;
+                int right = center;
+                int radius = traversal(sChar, left, right);
+                if(end - begin < radius * 2 || begin == -1){
+                    begin = left - radius;
+                    end = right + radius;
+                }
+            }else{
+                int left = center - 1;
+                int right = center + 1;
+                int radius = traversal(sChar, left, right);
+                if(end - begin < radius * 2 + 1){
+                    begin = center - radius;
+                    end = center + radius;
+                }
+            }
+        }
+
+        return s.substring(begin, end);
+    }
+
+    private int traversal(char[] sChar, int left, int right){
+        if(right > sChar.length || sChar[left] != sChar[right]) return 0;
+        if(left - 1 < 0 || right + 1 > sChar.length) return 1;
+        return 1 + traversal(sChar, left - 1, right + 1);
+    }
+
     public static void main(String[] args) {
         String target = "Bllose";
         System.out.println(target.length());
