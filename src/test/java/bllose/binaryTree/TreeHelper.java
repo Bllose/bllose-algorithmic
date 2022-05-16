@@ -2,7 +2,15 @@ package bllose.binaryTree;
 
 import bllose.binaryTree.BinaryTrees.TreeNode;
 
-public class TreeHelper {
+public class TreeHelper {  
+    /**
+     * 将数组转化为二叉树
+     *
+     * 该二叉树顺序严格遵照数组顺序
+     *
+     * @param values
+     * @return
+     */
     public static TreeNode establishBinaryTree(Integer[] values){
         if(values == null || values.length == 0 || values[0] == null) return null;
         TreeNode root = new TreeNode(values[0]);
@@ -10,7 +18,6 @@ public class TreeHelper {
         building(values, 3, root, false);
         return root;
     }
-
     private static void building(Integer[] values, int position, TreeNode root, boolean isLeftChild){
         if(values.length<position || values[position-1] == null) return;
         TreeNode curNode = new TreeNode(values[position - 1]);
