@@ -4,6 +4,7 @@
 ## 二叉查找树，平衡树
 - Leetcode 1382 将二叉搜索树变平衡  
 - - java/bllose/binaryTree/BinaryTrees
+![balanceBTS](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/binaryTree/resourses/balanceBTS.png)
 
 ## 分治  
 - Leetcode 875 爱吃香蕉的珂珂 
