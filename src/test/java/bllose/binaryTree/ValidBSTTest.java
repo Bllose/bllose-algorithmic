@@ -2,7 +2,7 @@ package bllose.binaryTree;
 
 import org.junit.Test;
 
-import bllose.binaryTree.BinaryTrees.TreeNode;
+import bllose.binaryTree.TreeHelper.TreeNode;
 import org.junit.Assert;
 
 public class ValidBSTTest {

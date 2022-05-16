@@ -3,19 +3,10 @@ package bllose.binaryTree;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BinaryTrees{
 
-    public static class TreeNode{
-        Integer val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(Integer val){this.val = val;}
-        TreeNode(Integer val, TreeNode left, TreeNode right){
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
+import bllose.binaryTree.TreeHelper.TreeNode;
+
+public class BinaryTrees{
 
     /**
      * 平衡化搜索二叉树
@@ -23,52 +14,27 @@ public class BinaryTrees{
      * @param root
      * @return
      */
+    List<Integer> inOrderList = new ArrayList<>();
     public TreeNode balanceBST(TreeNode root){
-        List<Integer> result = middleOrderTraversal(root);
-        return rebuildBST(result);
+        inOrderTraversal(root);
+        return balancingBST(0, inOrderList.size()-1);
     }
-    private TreeNode rebuildBST(List<Integer> origin){
-        if(null == origin || origin.size() == 0) return null;
-        int middle = origin.size()/2;
-        TreeNode root = new TreeNode(origin.get(middle));
-        if(middle>0){
-            establishBST(root, origin.subList(0, middle - 1), true);
-        }
-        if(middle + 1 < origin.size()){
-            establishBST(root, origin.subList(middle + 1, origin.size()), false);
-        }
-        return root;
+    
+    private TreeNode balancingBST(int left, int right){
+        int middle = (left + right) >> 1;
+        TreeNode curNode = new TreeNode(inOrderList.get(middle));
+        if(middle > left) curNode.left = balancingBST(left, middle - 1);
+        if(middle < right) curNode.right = balancingBST(middle + 1, right);
+        return curNode;
     }
-    private void establishBST(TreeNode root, List<Integer> origin, boolean isLeftChild){
-        if(origin.size() == 0) return;
-        int middle = origin.size()/2;
-        TreeNode child = new TreeNode(origin.get(middle));
-        if(isLeftChild) {
-            root.left = child;
-        }else{
-            root.right = child;
-        }
-        if(middle>0){
-            establishBST(child, origin.subList(0, middle - 1), true);
-        }
-        if(middle + 1 < origin.size()){
-            establishBST(child, origin.subList(middle + 1, origin.size()), false);
-        }
-    }
-    private List<Integer> middleOrderTraversal(TreeNode root) {
-        if(null == root) return new ArrayList<>();
-        List<Integer> result = new ArrayList<>();
 
-        if(root.left != null){
-            result.addAll(middleOrderTraversal(root.left));
-        }
-        result.add(root.val);
-        if(root.right != null){
-            result.addAll(middleOrderTraversal(root.right));
-        }
-
-        return result;
+    private void inOrderTraversal(TreeNode root) {
+        if(root.left != null) inOrderTraversal(root.left);
+        inOrderList.add(root.val);
+        if(root.right != null) inOrderTraversal(root.right);
     }
+
+
 
     /**
      * 验证是否为搜索二叉树
