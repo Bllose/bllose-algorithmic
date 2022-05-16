@@ -75,28 +75,28 @@ public class LongestPalindrome {
 
         char[] sChar = s.toCharArray();
         int begin = -1;
-        int end = -1;
+        int end = -2; // 初始化时， 极端场景下应该确保 end - begin + 1 应该为0
         for(int center = 1; center < sChar.length; center ++){
             if(sChar[center - 1] == sChar[center]){
                 int left = center - 1;
                 int right = center;
                 int radius = traversal(sChar, left, right);
-                if(end - begin < radius * 2 || begin == -1){
-                    begin = left - radius;
-                    end = right + radius;
+                if(end - begin + 1 < radius * 2 || end - begin <= 0){ // end - begin 为数组下标间隔，比实际长度短 1
+                    begin = left - radius + 1; // 由于拓展时，首先从相同的两个字母开始，所以第一个半径时不需要加入计算的
+                    end = right + radius - 1;
                 }
             }else{
                 int left = center - 1;
                 int right = center + 1;
                 int radius = traversal(sChar, left, right);
-                if(end - begin < radius * 2 + 1){
+                if(end - begin + 1 < radius * 2 + 1){
                     begin = center - radius;
                     end = center + radius;
                 }
             }
         }
 
-        return s.substring(begin, end);
+        return s.substring(begin, end + 1); // begin, end为数组下标， 在实际长度中，尾部应该加一
     }
 
     private int traversal(char[] sChar, int left, int right){
