@@ -2,6 +2,8 @@
 各种算法
 
 ## 二叉查找树，平衡树
+- Leetcode 1382 将二叉搜索树变平衡  
+- - java/bllose/binaryTree/BinaryTrees
 
 ## 分治  
 - Leetcode 875 爱吃香蕉的珂珂 
