@@ -17,6 +17,65 @@ public class BinaryTrees{
         }
     }
 
+    /**
+     * 平衡化搜索二叉树
+     *
+     * @param root
+     * @return
+     */
+    public TreeNode balanceBST(TreeNode root){
+        List<Integer> result = middleOrderTraversal(root);
+        return rebuildBST(result);
+    }
+    private TreeNode rebuildBST(List<Integer> origin){
+        if(null == origin || origin.size() == 0) return null;
+        int middle = origin.size()/2;
+        TreeNode root = new TreeNode(origin.get(middle));
+        if(middle>0){
+            establishBST(root, origin.subList(0, middle - 1), true);
+        }
+        if(middle + 1 < origin.size()){
+            establishBST(root, origin.subList(middle + 1, origin.size()), false);
+        }
+        return root;
+    }
+    private void establishBST(TreeNode root, List<Integer> origin, boolean isLeftChild){
+        if(origin.size() == 0) return;
+        int middle = origin.size()/2;
+        TreeNode child = new TreeNode(origin.get(middle));
+        if(isLeftChild) {
+            root.left = child;
+        }else{
+            root.right = child;
+        }
+        if(middle>0){
+            establishBST(child, origin.subList(0, middle - 1), true);
+        }
+        if(middle + 1 < origin.size()){
+            establishBST(child, origin.subList(middle + 1, origin.size()), false);
+        }
+    }
+    private List<Integer> middleOrderTraversal(TreeNode root) {
+        if(null == root) return new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
+
+        if(root.left != null){
+            result.addAll(middleOrderTraversal(root.left));
+        }
+        result.add(root.val);
+        if(root.right != null){
+            result.addAll(middleOrderTraversal(root.right));
+        }
+
+        return result;
+    }
+
+    /**
+     * 验证是否为搜索二叉树
+     *
+     * @param root
+     * @return
+     */
     public boolean isValidBST(TreeNode root){
         if(null == root) return true;
 
@@ -42,6 +101,12 @@ public class BinaryTrees{
         return true;
     }
 
+    /**
+     * 层级遍历二叉树
+     *
+     * @param root
+     * @return
+     */
     public List<List<Integer>> levelOrder(TreeNode root){
         if(null == root) return new ArrayList<>();
         List<List<Integer>> result = new ArrayList<>();
