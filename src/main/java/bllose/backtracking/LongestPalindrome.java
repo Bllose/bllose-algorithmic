@@ -100,7 +100,7 @@ public class LongestPalindrome {
     }
 
     private int traversal(char[] sChar, int left, int right){
-        if(right > sChar.length || sChar[left] != sChar[right]) return 0;
+        if(right >= sChar.length || sChar[left] != sChar[right]) return 0;
         if(left - 1 < 0 || right + 1 > sChar.length) return 1;
         return 1 + traversal(sChar, left - 1, right + 1);
     }
