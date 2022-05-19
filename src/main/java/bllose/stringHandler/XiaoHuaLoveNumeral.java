@@ -16,4 +16,37 @@ package bllose.stringHandler;
  * 4***    5***    6***
  */
 public class XiaoHuaLoveNumeral {
+
+    public static void main(String[] args) {
+        solution(6);
+    }
+
+    public static void solution(int height){
+        int left = 1;
+        int right = 1;
+        for(int i = 1; i <= height; i ++){
+            StringBuffer currectLine = new StringBuffer();
+            int spaces = (height - i) * 4;
+            while(spaces > 0){
+                currectLine.append(" ");
+                spaces --;
+            }
+            int le = left;
+            int ri = right;
+            if(i%2 != 0) {
+                while(le <= ri){
+                    currectLine.append(String.format("%-4d", le).replaceAll(" ", "*")).append("    ");
+                    le ++;
+                }
+            }else {
+                while(ri >= le){
+                    currectLine.append(String.format("%-4d", ri).replaceAll(" ", "*")).append("    ");
+                    ri --;
+                }
+            }
+            left = right + 1;
+            right += i + 1;
+            System.out.println(currectLine);
+        }
+    }
 }
