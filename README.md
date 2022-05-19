@@ -32,3 +32,20 @@
 ## 动态规划
 - Leetcode 5 最长回文子串
 - - java/bllose/backtracking/LongestPalindrome.java
+
+
+# 递归思想  
+# 分治策略  
+# 单调栈  
+# 并查集 （DSU）
+# 滑动窗口  
+# 前缀和\[&哈希表优化\]
+# 差分  
+# 拓扑排序（专业级）
+# 字符串  
+# 二分查找
+# BFS广搜
+# DFS深搜&回溯  
+# 动态规划  
+# 贪心算法  
+# 字典树  
