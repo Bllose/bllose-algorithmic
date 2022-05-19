@@ -19,8 +19,7 @@ public class OlympicGame {
         int total = in.nextInt();
         List<Country> countries = new ArrayList<>();
         for(int i = 0; i < total; i ++){
-            Country country = new Country(in.next(), in.nextInt(), in.nextInt(), in.nextInt());
-            countries.add(country);
+            countries.add(new Country(in.next(), in.nextInt(), in.nextInt(), in.nextInt()));
         }
         Collections.sort(countries);
         countries.stream().forEach(x->System.out.println(x.name));
