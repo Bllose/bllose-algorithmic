@@ -25,7 +25,7 @@ public class SearchRange {
                     return new int[]{left, right};
                 }
                 result[0] = middle - 1;
-                while(result[0] > 0 && nums[result[0]] == target){
+                while(result[0] > -1 && nums[result[0]] == target){
                     result[0] -= 1;
                 }
                 result[0] += 1;
@@ -43,7 +43,7 @@ public class SearchRange {
                         middle --;
                     }else {
                         right = middle;
-                        middle = (right - left) >> 1;
+                        middle = left + (right - left) >> 1;
                     }
                 }else{
                     if(left == middle){
@@ -51,7 +51,7 @@ public class SearchRange {
                         middle ++;
                     }else{
                         left = middle;
-                        middle = (right - left) >> 2;
+                        middle = left + (right - left) >> 2;
                     }
                 }
             }
