@@ -7,6 +7,10 @@ public class SearchRange {
      *
      * 如果数组中不存在目标值 target，返回[-1, -1]。
      *
+     * 16:16	info
+	 *		解答成功:
+	 *		执行耗时:0 ms,击败了100.00% 的Java用户
+	 *		内存消耗:43.9 MB,击败了99.73% 的Java用户
      *  
      * @param nums
      * @param target
