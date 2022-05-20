@@ -1,8 +1,12 @@
 package bllose.binaryTree;
 
+import com.sun.jmx.remote.internal.ArrayQueue;
+
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.Math;
+import java.util.Queue;
 
 public class TreeHelper {  
 
@@ -41,7 +45,7 @@ public class TreeHelper {
     }
 
     /**
-     * 遍历二叉树深度
+     * 获取二叉树最大深度
      * 
      * @param root
      * @param i 当前层级，root层为 1
@@ -55,6 +59,56 @@ public class TreeHelper {
         if(left > i) i = left; 
         if(right > i) i = right;
         return i;
+    }
+
+    /**
+     * BFS：广度优先搜索
+     *
+     * @param root
+     * @return
+     */
+    public static List<Integer> breadthFirstSearch(TreeNode root){
+        List<Integer> arrayBinaryTree = new ArrayList<>();
+        Queue<TreeNode> theQueue = new ArrayDeque<>();
+        theQueue.add(root);
+        while((root = theQueue.poll()) != null){
+            arrayBinaryTree.add(root.val);
+            if(root.left != null) theQueue.add(root.left);
+            if(root.right != null) theQueue.add(root.right);
+        }
+        return arrayBinaryTree;
+    }
+
+    /**
+     * 通过广度优先遍历，将TreeNode转化为数组
+     *
+     * @param root
+     * @return
+     */
+    public static List<Integer> covertNode2Array(TreeNode root){
+        List<Integer> arrayTree = new ArrayList<>();
+        int deepth = traveralingTheDeep(root, 1);
+        int total = (int) Math.pow(2.0, deepth) - 1;
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        for( int i = 0 ; i < total; i ++){
+            root = queue.poll();
+            if(root == null){
+                arrayTree.add(null);
+                queue.offer(new TreeNode(null));
+                queue.offer(new TreeNode(null));
+            }else{
+                arrayTree.add(root.val);
+                queue.offer(root.left==null?new TreeNode(null):root.left);
+                queue.offer(root.right==null?new TreeNode(null):root.right);
+            }
+        }
+        while(true){
+            if(null != arrayTree.get(arrayTree.size() - 1)) break;
+            arrayTree.remove(arrayTree.size() - 1);
+        }
+
+        return arrayTree;
     }
 
     /**
@@ -76,6 +130,7 @@ public class TreeHelper {
         }
         return result;
     }
+
 
     
 
