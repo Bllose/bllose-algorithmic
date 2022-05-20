@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -68,7 +69,7 @@ public class DoPlusTest {
 
 
     private String establishLongString() throws FileNotFoundException {
-        File f = new File("D:\\workplace\\github.com\\bllose-algorithmic-main\\src\\test\\java\\bllose\\arithmetic\\source.txt");
+        File f = new File("src/test/resources/lotOfNumbers.txt");
         Scanner myReader = new Scanner(f);
         String data = myReader.nextLine();
         myReader.close();
