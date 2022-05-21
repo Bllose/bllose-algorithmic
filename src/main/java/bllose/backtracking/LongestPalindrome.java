@@ -1,5 +1,8 @@
 package bllose.backtracking;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LongestPalindrome {
     
     public String bruteForce(String target){
@@ -30,6 +33,50 @@ public class LongestPalindrome {
         }
         return result;
     }
+
+    /**
+     * 409. 最长回文
+     * 给定一个包含大写字母和小写字母的字符串 s ，返回 通过这些字母构造成的 最长的回文串 。
+     *
+     * 在构造过程中，请注意 区分大小写 。比如 "Aa" 不能当做一个回文字符串。
+     * @param s
+     * @return
+     */
+    public String dynamicProgrammingRepeat(String s){
+        if(s==null || s.length()==0) return "";
+        if(s.length() == 1) return s;
+        final int LEN = s.length();
+        Boolean[][] recorder = new Boolean[LEN][LEN];
+        for(int i = 0; i < LEN; i ++){
+            recorder[i][i] = true;
+        }
+
+        int begin = 0;
+        int lenght = 1;
+        char[] sChar = s.toCharArray();
+        for(int len = 2; len <= LEN; len ++) {
+            for(int left = 0; left <= LEN-len; left ++){ // left 代表当前比对的字母； right 表示与当前字母比较的距离
+                int right = left + len - 1;
+                if(sChar[left] != sChar[right]){
+                    recorder[left][right] = false;
+                }else{
+                    if(len<3){
+                        recorder[left][right] = true;
+                    }else{
+                        recorder[left][right] = recorder[left+1][right -1]; // 更短的距离， 说明是上一轮的比较结果。
+                    }
+
+                    if(recorder[left][right] && len > lenght){
+                        begin = left;
+                        lenght = len;
+                    }
+                }
+            }
+        }
+        
+        return s.substring(begin, begin + lenght);
+    }
+
 
     public String dynamicProgramming(String s){
         if(null == s || s.length() == 0) return "";
@@ -104,6 +151,62 @@ public class LongestPalindrome {
         if(left - 1 < 0 || right + 1 > sChar.length) return 1;
         return 1 + traversal(sChar, left - 1, right + 1);
     }
+
+
+    /**
+     * 
+     * 
+     * @param s
+     * @return
+     */
+    public int longestPalindromeInt(String s){
+        if(null == s || s.length() == 0) return 0;
+        if(s.length() == 1) return 1;
+        char[] sChar = s.toCharArray();
+        Map<Character, Integer> recorder = new HashMap<>();
+
+        for(char cur: sChar){
+            if(recorder.containsKey(cur)){
+                recorder.put(cur, recorder.get(cur) + 1);
+            }else{
+                recorder.put(cur, 1);
+            }
+        }
+
+        int counter = 0;
+        boolean hasCenter = false;
+        for(Integer num: recorder.values()){
+            if(num > 2) counter += (num / 2) * 2;
+            if(num == 2) counter += 2;
+            if(num % 2 == 1) hasCenter = true;
+        }
+
+        if(hasCenter) counter ++;
+
+        return counter;
+    }
+
+    public int longestPalindromeInt2(String s){
+        if(null == s || s.length() == 0) return 0;
+        if(s.length() == 1) return 1;
+        char[] sChar = s.toCharArray();
+        Map<Character, Integer> recorder = new HashMap<>();
+
+        int counter = 0;
+        for(char cur: sChar){
+            if(recorder.containsKey(cur)){
+                recorder.remove(cur);
+                counter += 2;
+            }else{
+                recorder.put(cur, 1);
+            }
+        }
+
+        if(!recorder.isEmpty()) counter ++;
+
+        return counter;
+    }
+
 
     public static void main(String[] args) {
         String target = "Bllose";
