@@ -154,7 +154,7 @@ public class LongestPalindrome {
 
 
     /**
-     * 
+     * 8 ms	39.9 MB
      * 
      * @param s
      * @return
@@ -186,6 +186,11 @@ public class LongestPalindrome {
         return counter;
     }
 
+    /**
+     * 5 ms	41 MB
+     * @param s
+     * @return
+     */
     public int longestPalindromeInt2(String s){
         if(null == s || s.length() == 0) return 0;
         if(s.length() == 1) return 1;
@@ -206,6 +211,33 @@ public class LongestPalindrome {
 
         return counter;
     }
+
+    /**
+     * 1 ms	39.7 MB
+     * 
+     * @param s
+     * @return
+     */
+    public int longestPalindromeInt3(String s){
+        int ans = 0;
+        int[] counter = new int[128];
+        char[] sChar = s.toCharArray();
+
+        for(char cur: sChar){
+            counter[cur] ++;
+        }
+
+        for(int cur: counter){
+            ans += cur/2 *2;
+            if(cur%2==1 && ans%2==0){
+                ans ++;
+            }
+        }
+
+        return ans;
+    }
+
+
 
 
     public static void main(String[] args) {
