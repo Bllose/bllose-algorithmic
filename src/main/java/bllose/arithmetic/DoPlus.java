@@ -121,18 +121,6 @@ public class DoPlus {
         return counter;
     }
 
-    private int count(List<Cell> cellList, int left, int right, int sum){
-        if(cellList.get(left).value > 100 || right < left) return 0;
-        if(cellList.get(left).value + cellList.get(right).value == sum) return 1;
-        if(cellList.get(left).value + cellList.get(right).value < sum){
-            return 1 + count(cellList, left, -- right, sum - cellList.get(right).value);
-        }
-        if(cellList.get(left).value + cellList.get(right).value > sum){
-            return count(cellList, left, -- right , sum - cellList.get(right).value);
-        }
-        return 0;
-    }
-
     public static void main(String[] args){
         Scanner s = new Scanner(System.in);
         int total = s.nextInt();
@@ -148,6 +136,7 @@ public class DoPlus {
             }
             total --;
         }
+        s.close();
 
         for(Cell curCell :cellMaps.values()){
             cellList.add(curCell);

@@ -21,6 +21,7 @@ public class OlympicGame {
         for(int i = 0; i < total; i ++){
             countries.add(new Country(in.next(), in.nextInt(), in.nextInt(), in.nextInt()));
         }
+        in.close();
         Collections.sort(countries);
         countries.stream().forEach(x->System.out.println(x.name));
 //        countries.stream().forEach(System.out::println);

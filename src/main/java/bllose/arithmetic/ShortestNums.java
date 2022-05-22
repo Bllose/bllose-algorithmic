@@ -39,6 +39,13 @@ public class ShortestNums {
         return ans;
     }
 
+    /**
+     * 119ms 16820KB
+     * 
+     * @param nums
+     * @param target
+     * @return
+     */
     public int binarySearch(int[] nums, int target){
         int minLen = nums.length;
         int left = 0;
