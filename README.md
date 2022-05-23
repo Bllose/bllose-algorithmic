@@ -1,10 +1,6 @@
 # bllose-algorithmic
 各种算法
 
-5月21日   
-OJ 290. 坐电梯 [贪心]  
-https://oj.rnd.huawei.com/problems/290/details  
-
 5月22日  
 OJ 2352. 马走日字 [递归]  
 https://oj.rnd.huawei.com/problems/2352/details  
