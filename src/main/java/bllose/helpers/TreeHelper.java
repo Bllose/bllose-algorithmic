@@ -1,4 +1,4 @@
-package bllose.binaryTree;
+package bllose.helpers;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -12,11 +12,11 @@ public class TreeHelper {
      * 二叉树结点
      */
     public static class TreeNode{
-        Integer val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(Integer val){this.val = val;}
-        TreeNode(Integer val, TreeNode left, TreeNode right){
+        public Integer val;
+        public TreeNode left;
+        public TreeNode right;
+        public TreeNode(Integer val){this.val = val;}
+        public TreeNode(Integer val, TreeNode left, TreeNode right){
             this.val = val;
             this.left = left;
             this.right = right;
