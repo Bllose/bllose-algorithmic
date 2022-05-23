@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 1字节 0xxxxxxx
+ * 1字节 0xxxxxxx ?
+ * 2字节 10xxxxxx 10xxxxxx
  * 6字节 1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
  *
  * X-UTF : E58D8E
@@ -48,6 +49,8 @@ public class X_utf_2_code {
                 break;
             }
         }
+        // 当长度为一时， 以0开头，也就意味着 len 为0 ?
+        // 这时候应该适当处理
         if(len * 8 != sb.length()) return -1;
 
         StringBuffer xUtfCode = new StringBuffer();
