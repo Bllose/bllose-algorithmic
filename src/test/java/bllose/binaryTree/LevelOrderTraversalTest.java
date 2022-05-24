@@ -6,7 +6,8 @@ import com.alibaba.fastjson.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
 
-import bllose.binaryTree.TreeHelper.TreeNode;
+import bllose.helpers.TreeHelper;
+import bllose.helpers.TreeHelper.TreeNode;
 
 public class LevelOrderTraversalTest {
     BinaryTrees bt = new BinaryTrees();
