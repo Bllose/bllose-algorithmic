@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import bllose.binaryTree.TreeHelper.TreeNode;
+import bllose.helpers.TreeHelper.TreeNode;
 
 public class BinaryTrees{
 
