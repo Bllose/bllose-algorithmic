@@ -84,10 +84,21 @@ public class GoUp {
         return Arrays.stream(recorder).max().getAsInt();
     }
 
+    private static int[] array = new int []{
+        614,812,508,165,266,945,202,444,587,708,459,541,183,359,699,274,318,576,744,289,478,102,895,8,158,894,481,271,107,993,567,455,875,815,838,598,819,795,446,707,379,747,339,233,58,149,884,448,893,225,863,984,520,916,340,600,399,88,85,908,572,896,396,56,681,801,936,362,978,334,208,314,186,609,390,404,488,25,938,524,751,468,680,874,995,923,935,429,180,817,689,753,501,72,357,94,977,432,545,70
+    };
     public static void main(String[] args) {
-        System.out.println(longestSubArray(new int[]{1,5,2,4,3}));
-        System.out.println(longestSubArrayByMemo(new int[]{1,5,2,4,3}));
-        System.out.println(Nonrecursive(new int[]{1,5,2,4,3}));
+        long start = System.currentTimeMillis();
+        System.out.println(longestSubArray(array));
+        System.out.println("耗时" + (System.currentTimeMillis() - start));
+
+        start = System.currentTimeMillis();
+        System.out.println(longestSubArrayByMemo(array));
+        System.out.println("耗时" + (System.currentTimeMillis() - start));
+
+        start = System.currentTimeMillis();
+        System.out.println(Nonrecursive(array));
+        System.out.println("耗时" + (System.currentTimeMillis() - start));
     }
 
 }
