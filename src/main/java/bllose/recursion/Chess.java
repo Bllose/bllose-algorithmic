@@ -40,18 +40,6 @@ public class Chess {
         return null;
     }
 
-//    private int go1(int[][] steps, int curX, int curY, int x, int y, int step){
-//        if(curX<0 || curY <0 || curX > x || curY > y || steps[curX][curY] != 0) return step;
-//        steps[curX][curY] = step;
-//        int nextX = curX + 2;
-//        int nextY = curY + 1;
-//        step = go1(steps, nextX, nextY, x, y, step + 1);
-//
-//        nextX = curX
-//
-//        return step;
-//    }
-
     private void go(int[][] steps, int lastY, int lastX, int y, int x){
         try {
             if (lastX + 2 < x && lastY + 1 < y && steps[lastY + 1][lastX + 2] == 0) {
