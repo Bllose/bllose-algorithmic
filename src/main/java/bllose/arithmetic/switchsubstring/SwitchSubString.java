@@ -1,10 +1,24 @@
 package bllose.arithmetic.switchsubstring;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class SwitchSubString {
     static {
-        System.setIn(SwitchSubString.class.getResourceAsStream("src/main/java/bllose/arithmetic/switchsubstring/Letters.txt"));
+        System.out. println (System.getProperty ("user.dir"));
+        // System.setIn(SwitchSubString.class.getResourceAsStream("D:\\workplace\\github\\bllose-algorithmic\\src\\main\\java\\bllose\\arithmetic\\switchsubstring\\Letters.txt"));
+        try {
+            System.setIn(new FileInputStream("src\\main\\java\\bllose\\arithmetic\\switchsubstring\\Letters.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -16,36 +30,55 @@ public class SwitchSubString {
      */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        char[] target = in.nextLine().toCharArray();
-        char[] letter = new char[target.length];
-        int[] counter = new int[target.length];
+        char[] letters = in.nextLine().toCharArray();
+        int k = in.nextInt();
 
-        for(Character cur: target){
-            int position = match(letter, cur);
-            if(position > -1){
-                counter[position] ++;
+        Map<Character, Recorder> mark = new HashMap<>();
+        char lastOne = '0';
+        int counter = 0;
+        for(char cur: letters){
+            if(cur != lastOne){
+                if(lastOne != '0'){
+                    if(mark.containsKey(lastOne)){
+                        if(mark.get(lastOne).counter < counter){
+                            mark.get(lastOne).counter = counter;
+                        } 
+                    }else{
+                        mark.put(lastOne, new Recorder(lastOne, counter));
+                    }
+                }
+                lastOne = cur;
+                counter = 1;
             }else{
-                position = add(letter, cur);
-                counter[position] ++;
+                counter ++;
             }
         }
-
+        if(mark.containsKey(lastOne)){
+            if(mark.get(lastOne).counter < counter){
+                mark.get(lastOne).counter = counter;
+            } 
+        }else{
+            mark.put(lastOne, new Recorder(lastOne, counter));
+        }
+        List<Recorder> recorderList = mark.values().stream().collect(Collectors.toList());
+        Collections.sort(recorderList, (o1, o2) -> o2.counter - o1.counter);
+        System.out.println(recorderList.get(k-1).counter);
     }
 
-    private static int add(char[] letter, Character cur) {
-        for(int i = 0 ; i < letter.length; i ++){
-            if(letter[i] == 0){
-                letter[i] = cur;
-                return i;
-            }
+    static class Recorder implements Comparator<Recorder>{
+        char letter;
+        int counter;
+        Recorder(char letter){
+            this.letter = letter;
+            counter = 1;
         }
-        return -1;
-    }
-
-    public static int match(char[] origin, char target){
-        for(int i = 0 ; i < origin.length; i ++){
-            if(origin[i] == target) return i;
+        Recorder(char letter, int counter){
+            this.letter = letter;
+            this.counter = counter;
         }
-        return -1;
+        @Override
+        public int compare(Recorder o1, Recorder o2) {
+            return o2.counter - o1.counter;
+        }
     }
 }
