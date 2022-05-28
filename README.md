@@ -155,8 +155,8 @@ present：正常上班
 
 示例1：  
 输入  
->  2
->  present  
+>  2  
+>  present   
 >  present present  
 
 输出:  
