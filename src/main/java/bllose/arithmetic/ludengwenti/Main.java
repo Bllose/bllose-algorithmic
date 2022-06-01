@@ -35,7 +35,7 @@ public class Main {
         System.out.println(noLightArea(lights, total));
     }
 
-    private static int noLightArea(String areas, int total){
+    public static int noLightArea(String areas, int total){
         int totalLength = (total - 1) * 100;
         Integer[] eachArea = Stream.of(areas.split(" ")).mapToInt(Integer::parseInt).boxed().toArray(Integer[]::new);
         Integer[][] lightedArea = new Integer[eachArea.length][2];
@@ -53,7 +53,7 @@ public class Main {
             int left = position - eachArea[i];
             int right = position + eachArea[i];
 
-            for(int j = i ; j > -1 ; j --){
+            for(int j = i - 1 ; j > -1 ; j --){
                 // 向左边拓展，检查是否存在跨灯的照亮覆盖
                 // 若前一盏灯已经被覆盖就继续往前找
                 if(lightedArea[j][0] == null){
@@ -68,6 +68,13 @@ public class Main {
                     lightedArea[j][1] = right;
                     break;
                 }
+                // 如果当前灯，将前面灯覆盖了， 那么前面灯清空， 并保存当前灯
+                if(left < lightedArea[j][0]){
+                    lightedArea[i][0] = left;
+                    lightedArea[i][1] = right;
+                    lightedArea[j][0] = null;
+                    break;
+                }
                 // 若前面照亮范围与当前灯没有交集， 那么当前灯就单独记录下来
                 if(lightedArea[j][1] < left){
                     lightedArea[i][0] = left;
@@ -79,6 +86,7 @@ public class Main {
 
 
         int len = 0;
+        int left = 0;
         int right = 0;
         for(int i = 0 ; i < lightedArea.length; i ++){
             if(lightedArea[i][0] == null){
@@ -86,7 +94,12 @@ public class Main {
             }
             // 第一次记录
             if(right == 0){
+                left = lightedArea[i][0];
                 right = lightedArea[i][1];
+                // 可能存在首部的未被照亮的部分
+                if( left > 0){
+                    len += left;
+                }
                 continue;
             }
 
@@ -94,6 +107,11 @@ public class Main {
             len += lightedArea[i][0] - right;
 
             right = lightedArea[i][1];
+        }
+
+        // 尾端如果还存在未被照明部分，则需要统计进去
+        if(totalLength - right > 0){
+            len += totalLength - right;
         }
 
         return len;
