@@ -5,6 +5,45 @@ public class IntegerInversion{
 //    int max = 2147483647; // Integer.MAX_VALUE
 //    int min = -2147483648;
     //           2147447412;
+    
+    /**
+     * 执行耗时:2 ms,击败了14.88% 的Java用户
+     * 内存消耗:38.8 MB,击败了47.50% 的Java用户
+     *
+     * @param x
+     * @return
+     */
+    public int reverse_int(int x){
+        if ( x < -2147483641 ){
+            return 0;
+        }
+        Integer[] origin = new Integer[10];
+        int original = Math.abs(x);
+
+        for(int i = 0 ; i < 10 && original > 0 ; i ++){
+            origin[i] = original % 10;
+            original = original / 10;
+        }
+
+        for(int i= 0 ; i < 9 ; i ++){
+            if(origin[i] == null){
+                break;
+            }
+            original *= 10;
+            original += origin[i];
+        }
+
+        if(origin[9] != null && origin[9] > 0){
+            if(original > 214748364){
+                return 0;
+            }
+        }else if(origin[9] != null){
+            original *= 10;
+            original += origin[9];
+        }
+
+        return original;
+    }
 
     /**
      * 执行耗时:2 ms,击败了14.88% 的Java用户
