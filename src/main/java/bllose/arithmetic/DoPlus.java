@@ -1,13 +1,9 @@
 package bllose.arithmetic;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import java.util.Scanner;
 
 public class DoPlus {
 
@@ -44,6 +40,9 @@ public class DoPlus {
      * 如果改变顺序， 2，98，2，98，2 我们答案的累计是 0，1，2，4，6，最终结果是相同的。
      * 基于以上三点， 我们只需要维护一个简单的hashmap 即可。
      *
+     * map 记录着已经走过的数值，和它已经出现的次数。
+     * 当遍历到新的数值时，从map中寻找可以与其相加等于100的数值， 将记录的“次数”加到最终结果中。
+     *
      * @param nums
      * @param total
      * @return
@@ -65,105 +64,5 @@ public class DoPlus {
             map.put(cur, map.getOrDefault(cur, 0) + 1);
         }
         return ans;
-    }
-
-
-
-    public int dynamicProgram(int[] nums, int total){
-        List<Cell> cellList = new ArrayList<>();
-        Map<Integer, Cell> cellMaps = new HashMap<>();
-        while(total > 0){
-            int currNum = nums[total - 1];
-            if(cellMaps.containsKey(currNum)){
-                cellMaps.get(currNum).add();
-            }else{
-                cellMaps.put(currNum, new Cell(currNum));
-            }
-            total --;
-        }
-
-        for(Cell curCell :cellMaps.values()){
-            cellList.add(curCell);
-        }
-        cellMaps.clear();
-        Collections.sort(cellList);
-
-        int counter = 0;
-        total = cellList.size() - 1;
-        for(int left = 0; left <= total; left ++){
-            if(cellList.get(left).value == 100){
-                counter += cellList.get(left).counter;
-                break;
-            }
-            int sum = 100 - cellList.get(left).value;
-            int right = total;
-            int curCounter = cellList.get(left).counter;
-            while(right > left){
-                if(sum - cellList.get(right).value == 0){
-                    sum = 0;
-                    curCounter = curCounter * cellList.get(right).counter;
-                    break;
-                }else if(cellList.get(left).value == 50){
-                    sum = 0;
-                    curCounter = (curCounter * (curCounter - 1)) >> 1;
-                    break;
-                }else if(sum - cellList.get(right).value > 0) {
-                    curCounter = curCounter * cellList.get(right).counter;
-                    sum -= cellList.get(right).value;
-                }
-                right --;
-            }
-            if(sum == 0){
-                counter += curCounter;
-            }
-        }
-
-        return counter;
-    }
-
-    public static void main(String[] args){
-        Scanner s = new Scanner(System.in);
-        int total = s.nextInt();
-
-        List<Cell> cellList = new ArrayList<>();
-        Map<Integer, Cell> cellMaps = new HashMap<>();
-        while(total > 0){
-            int currNum = s.nextInt();
-            if(cellMaps.containsKey(currNum)){
-                cellMaps.get(currNum).add();
-            }else{
-                cellMaps.put(currNum, new Cell(currNum));
-            }
-            total --;
-        }
-        s.close();
-
-        for(Cell curCell :cellMaps.values()){
-            cellList.add(curCell);
-        }
-
-        Collections.sort(cellList);
-
-        int right = cellList.size();
-        for(int left = 0; left < right; left ++){
-
-        }
-    }
-
-    static class Cell implements Comparable<Cell>{
-        int value;
-        int counter;
-        Cell(int value){
-            this.value = value;
-            this.counter = 1;
-        }
-        public void add(){
-            counter ++;
-        }
-
-        @Override
-        public int compareTo(Cell o) {
-            return this.value - o.value;
-        }
     }
 }
