@@ -8,7 +8,7 @@
 9. 
 
 # OJ2.0 华为
-270. 做加法 [DoPlus.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/arithmetic/DoPlus.java)
+270. (动态规划)做加法 [DoPlus.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/arithmetic/DoPlus.java)
 
 # 两数之和绝对值最小 | 时间限制：1秒 | 内存限制：32768K | 语言限制： 不限  
 > 1.ACM编程题 语言限制 \[ 编程题 | 平均分61.41分 | 49人正确/523人做题 | 提交: 3 次 得分： 95.0 / 100.0  \]
