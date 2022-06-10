@@ -1,10 +1,5 @@
-'''
-5
-1 99 98 2 2
-'''
-def func():
-    _ = int(input())
-    nums = input().split()
+
+def func(nums:[]) -> None:
     recorder = {}
     result = 0
     for num in nums:
@@ -19,5 +14,12 @@ def func():
             recorder[cur_num] += 1
     print(str(result))
 
+
+'''
+5
+1 99 98 2 2
+'''
 if __name__ == "__main__":
-    func()
+    _ = int(input())
+    nums = input().split()
+    func(nums)
