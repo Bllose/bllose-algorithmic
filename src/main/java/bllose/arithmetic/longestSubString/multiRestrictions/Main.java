@@ -127,6 +127,8 @@ public class Main {
 
         @Override
         public int compareTo(subString o) {
+            // 降序排列； 当前长度 > 对比对象的长度， 那么 resultLen < 0  -> 比对对象排在后面
+            //          当前和    > 对比对象的和,    那么 resultSum < 0  -> 比对对象排在后面
             int resultLen = o.length - this.length;
             if(resultLen != 0){
                 return resultLen;
