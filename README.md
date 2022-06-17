@@ -13,9 +13,10 @@
 270. (动态规划)做加法 [DoPlus.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/arithmetic/DoPlus.java)  [DoPlus.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/oj/DoPlus.py)  
 
 # Others  
-(滑窗)最大子串 - 多个限制条件 [Sliding Window Algorithm with Multiple restrictions - Java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/arithmetic/longestSubString/multiRestrictions/Main.java)   
-一串数字字符串，除了前两位数字，每个数字都是前两个数字的和[Numbers.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/arithmetic/Numbers.py)  
-数字转罗马数字[ConvertNumToRoman.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/arithmetic/convertNumToRoma/ConvertNumToRoman.py)
+- (滑窗)最大子串 - 多个限制条件 [Sliding Window Algorithm with Multiple restrictions - Java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/arithmetic/longestSubString/multiRestrictions/Main.java)   
+- 一串数字字符串，除了前两位数字，每个数字都是前两个数字的和[Numbers.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/arithmetic/Numbers.py)  
+- 数字转罗马数字[ConvertNumToRoman.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/arithmetic/convertNumToRoma/ConvertNumToRoman.py)  
+- 求字符串中所有整数的最小和[TheMinSum.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/arithmetic/theMin/TheMinSum.java)
 
 
 
