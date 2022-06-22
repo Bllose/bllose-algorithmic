@@ -21,7 +21,7 @@
 - 求字符串中所有整数的最小和[TheMinSum.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/arithmetic/theMin/TheMinSum.java)  
 - VLAN资源池[VlanResourcePool.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/arithmetic/switchsubstring/VlanResourcePool.java)  
 - 找朋友（找到前方最近一个更大数）[FindFriends.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/arithmetic/FindFriends.py)  
-- 滚动筛子(使用数组抽象化具体事例，找规律) [TurnDice.py]()
+- 滚动筛子(使用数组抽象化具体事例，找规律) [TurnDice.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/arithmetic/Dice/TurnDice.py)
 
 
 
