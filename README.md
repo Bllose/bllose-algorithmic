@@ -22,6 +22,7 @@
 - VLAN资源池[VlanResourcePool.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/arithmetic/switchsubstring/VlanResourcePool.java)  
 - 找朋友（找到前方最近一个更大数）[FindFriends.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/arithmetic/FindFriends.py)  
 - 滚动筛子(使用数组抽象化具体事例，找规律) [TurnDice.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/arithmetic/Dice/TurnDice.py)
+- 可以组成网络的服务器 (图，最大岛屿问题， 广度优先) [breath_first_search.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/arithmetic/graphs/breath_first_search.py)
 
 
 
