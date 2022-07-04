@@ -6,7 +6,7 @@
 \7. 整数反转 [IntegerInversion.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/leetcode/IntegerInversion.java) 有待改进  
 \8. 字符串转换证数(atoi) [Atoi.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/leetcode/Atoi.java)  运行速度有进步空间。 **不要用正则!**      [Atoi.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/leetcode/Atoi.py) python本身并不存在这种需求，因为其松类型控制。[Python是否存在类似于Java的Integer.MAX_VALUE的方法?](https://stackoverflow.com/questions/7604966/maximum-and-minimum-values-for-ints)  
 \96. (动态规划)(二叉搜索树基础知识)不同的二叉搜索树[DiffBST.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/leetcode/DiffBST.java)    
-\611. 有效三角形的个数 [EffectiveTriangle.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/leetcode/EffectiveTriangle.java) 有待改进 | [EffectiveTriangle.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/leetcode/EffectiveTriangle.py) 执行超时...    
+\611. 有效三角形的个数 [EffectiveTriangle.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/leetcode/EffectiveTriangle.java) 有待改进 | [EffectiveTriangle.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/leetcode/EffectiveTriangle.py) 执行超时...     
 \968. 监控二叉树 [MonitorBT.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/leetcode/MonitorBT.java) 有待改进
 \972. 相等的有理数 [EquiRational.java](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/java/bllose/leetcode/EquiRational.java) | [EquiRational.py](https://github.com/Bllose/bllose-algorithmic/blob/main/src/main/python/bllose/leetcode/EquiRational.py) 小数转分数
 
